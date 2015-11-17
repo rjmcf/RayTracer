@@ -12,23 +12,29 @@ public class Scene {										// x goes right, y goes up, z goes out.
 															 * corner of the screen. */
 	private int X;											// Dimensions in terms of screen pixels
 	private int Y;
-	private Camera cam = new Camera(-300,2000,1700, new Vector(0,-1,-1),new Vector(0,1,-1),1000);	
+	private Camera cam = new Camera(0,800,1600, new Vector(0,-1,-2),new Vector(0,2,-1),1000);	
 				// position, direction, up, distance from screen
 	Tintable grey = new Tintable(50,50,50);
 	Tintable green = new Tintable(10,100,10);
 	Tintable red = new Tintable(250,0,0);
 	Tintable yellow = new Tintable(250,250,10); // colours to use
-	private Shape[] shapes = new Shape[] { new InfPlane(0,0,0, new Point(0,1,0), grey, Material.MAT1),
+	/*private Shape[] shapes = new Shape[] { new InfPlane(0,0,0, new Point(0,1,0), grey, Material.MAT1),
 										   new Sphere(-500,50,-500, 50, red, Material.MAT1),
 										   new Sphere(-100,100,-100, 100, green, Material.MAT1)}; // List of shapes in scene.
 	private Light[] lights = new Light[] { new Light(200,300,200, yellow) };  // List of lights in scene
+	*/
 	
-	/*private Shape[] shapes = new Shape[] { new Sphere(grey, Material.MAT1, 0,100,200, 50),  // Alternative scene
-										   new Sphere(grey, Material.MAT1, 0,-150,0, 200)}; 
+	/*private Shape[] shapes = new Shape[] { new Sphere(0,100,200, 50, grey, Material.MAT1),  // Alternative scene
+										   new Sphere(0,-150,0, 200, grey, Material.MAT1)}; 
 	private Light[] lights = new Light[] {new Light(25,200,250, yellow),
 										  new Light(-300,-150,300, red),
-										  new Light(100,-400,150, green)};// new Tintable(200,200,200))};	
-	*/
+										  new Light(100,-400,150, green)};// new Tintable(200,200,200))}; 
+	*/	
+	
+	private Shape[] shapes = new Shape[] { new Sphere(0,100,0, 100, red, Material.MAT1),
+										   new InfPlane(0,0,0, new Point(0,1,0), grey, Material.MAT1) };
+	private Light[] lights = new Light[] { new Light(200,400,200, yellow) };
+	
 	public Scene(int h, int w, int X, int Y){
 		height = h;	// monitor
 		width = w;
