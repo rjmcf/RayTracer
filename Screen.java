@@ -2,7 +2,7 @@ package rjmcf.raytracer;
 
 import java.awt.Color;
 import java.awt.Graphics;
-//TODO: insert other appropriate "import" statements here
+
 
 public class Screen{
  	private int width;		// dimensions in screen pixels

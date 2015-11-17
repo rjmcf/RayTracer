@@ -44,13 +44,5 @@ public class RasterDisplay extends JFrame {
       	disp.initialise();
       	disp.resetWorld();
       	disp.setVisible(true);
- 		
- 		/*Camera c = new Camera(0,0,100, new Vector(0,0,-1), new Vector(0,1,0), 100);
- 		Sphere s = new Sphere(new Tintable(Color.BLACK), Material.MAT1, 0,0,0, 50);
- 		Vector norm = new Vector(new Point(0,100,0), new Point(0,1,0));
- 		for (Point v : s.getIntersections(norm)) {
- 			System.out.println(v);
- 		}
- 		//System.out.println(norm);*/
 	}
 }

@@ -26,10 +26,6 @@ public class Sphere extends Shape {
 			return new Point[0];
 		}
 		float d = (float)Math.sqrt(b*b - 4*a*c);
-		/*System.out.println("a: " + a);
-		System.out.println("b: " + b);
-		System.out.println("c: " + c);
-		System.out.println("d: " + d);*/
 		float s1 = (-b+d)/2*a;
 		float s2 = (-b-d)/2*a;
 		

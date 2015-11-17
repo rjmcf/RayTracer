@@ -18,14 +18,14 @@ public class Scene {										// x goes right, y goes up, z goes out.
 	Tintable yellow = new Tintable(250,250,10); // colours to use
 	private Shape[] shapes = new Shape[] { new InfPlane(0,0,0, new Point(0,1,0), grey, Material.MAT1),
 										   new Sphere(-500,50,-500, 50, red, Material.MAT1),
-										   new Sphere(-100,100,-100, 100, green, Material.MAT1)};
-	private Light[] lights = new Light[] { new Light(200,300,200, yellow) };
+										   new Sphere(-100,100,-100, 100, green, Material.MAT1)}; // List of shapes in scene.
+	private Light[] lights = new Light[] { new Light(200,300,200, yellow) };  // List of lights in scene
 	
-	/*private Shape[] shapes = new Shape[] { new Sphere(grey, Material.MAT1, 0,100,200, 50),
-										   new Sphere(grey, Material.MAT1, 0,-150,0, 200)}; // List of shapes in scene.
+	/*private Shape[] shapes = new Shape[] { new Sphere(grey, Material.MAT1, 0,100,200, 50),  // Alternative scene
+										   new Sphere(grey, Material.MAT1, 0,-150,0, 200)}; 
 	private Light[] lights = new Light[] {new Light(25,200,250, yellow),
 										  new Light(-300,-150,300, red),
-										  new Light(100,-400,150, green)};// new Tintable(200,200,200))};	// List of lights in scene
+										  new Light(100,-400,150, green)};// new Tintable(200,200,200))};	
 	*/
 	public Scene(int h, int w, int X, int Y){
 		height = h;	// monitor
@@ -40,25 +40,21 @@ public class Scene {										// x goes right, y goes up, z goes out.
 		Tintable diffuse = new Tintable(0,0,0);
 		Tintable specular = new Tintable(0,0,0);
 		float prop;
+		boolean collision = false;
 		for (Light l : lights) {
 			Vector toLight = new Vector(point, l.getPos().pSub(point).norm());
-			try {
 				for (Shape other : shapes) {
 					if (other != shape) {
 						if (other.getIntersections(toLight).length > 0){
-							//System.out.println("collision detected");
-							throw new Exception();
+							collision = true;
+							break;
 						}
 					}
 				}
-			}
-			catch (Exception e ) {
+			if (collision) {
+				collision = false;
 				continue;
 			}
-			
-			/*System.out.println("l: " + l.getPos());
-			System.out.println("point: " + point);
-			System.out.println("toLight: " + toLight);*/
 			
 			float cosT = toLight.dot(shape.getNormal(point));
 			if (cosT>0) {
@@ -102,15 +98,7 @@ public class Scene {										// x goes right, y goes up, z goes out.
 				screen[i][j] = color;		// set screen in place to color.
 			}
 		}
-		/*int w = width/2;
-		int h = height/2;
-		for (int j = 0; j<height; j++) {	// Draw midpoint lines
-			screen[w][j] = Color.BLACK;
-		}
-		for (int i = 0; i<width; i++) {
-			screen[i][h] = Color.BLACK;
-		}*/
+		
 		return screen;
 	}
-
 }

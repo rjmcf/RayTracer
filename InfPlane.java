@@ -18,9 +18,7 @@ public class InfPlane extends Shape {
 		line = line.norm();
 		float d = line.getDirection().pDot(normal);
 		float s = (d - normal.pDot(line.getPoint())) / normal.pDot(line.getDirection());
-		//System.out.println(s);
 		if (s > 0) {
-			//System.out.println("intersection");
 			return new Point[] { line.getPoint().pAdd(line.getDirection().pMult(s)) };
 		}
 		return new Point[0];
