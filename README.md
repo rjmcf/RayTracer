@@ -5,6 +5,6 @@ Updates should include reflectivity, refraction and some imaging effects like de
 
 Examples:
 
-![Using a plane as a floor](https://github.com/rjmcf/RayTracer/blob/master/Ball_on_a_Plane.png)
-![Showing multiple shadows and lights](https://github.com/rjmcf/RayTracer/blob/master/Multiple_Lights_Multiple_Shadows.png)
-![More use of the floor](https://github.com/rjmcf/RayTracer/blob/master/Shadows_on_a_Plane.png)
+![Using a plane as a floor](https://github.com/rjmcf/RayTracer/blob/anti-alias/Ball_on_a_Plane.png)
+![Showing multiple shadows and lights](https://github.com/rjmcf/RayTracer/blob/anti-alias/Multiple_Lights_Multiple_Shadows.png)
+![More use of the floor](https://github.com/rjmcf/RayTracer/blob/anti-alias/Shadows_on_a_Plane.png)
