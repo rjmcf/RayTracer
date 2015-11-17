@@ -1,6 +1,7 @@
 package rjmcf.raytracer;
 
 import java.awt.Color;
+import java.util.List;
 
 public class Tintable extends Color {
 	// This allows mixing of colours and lightening and darkening
@@ -31,5 +32,17 @@ public class Tintable extends Color {
 	@Override
 	public String toString() {
 		return getRed() + ", " + getGreen() + ", " + getBlue();
+	}
+	
+	public static Tintable average(List<Tintable> list) {
+		int redTot = 0, greenTot = 0, blueTot = 0;
+		
+		for (Tintable c : list) {
+			redTot += c.getRed();
+			greenTot += c.getGreen();
+			blueTot += c.getBlue();
+		}
+		
+		return new Tintable(redTot/list.size(), greenTot/list.size(), blueTot/list.size());
 	}
 }

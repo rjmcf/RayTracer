@@ -1,6 +1,8 @@
 package rjmcf.raytracer;
 
 import java.awt.Color;
+import java.util.ArrayList;
+import java.util.List;
 
 public class Scene {										// x goes right, y goes up, z goes out.
 	private int height;										// Dimensions in terms of monitor pixels
@@ -36,7 +38,7 @@ public class Scene {										// x goes right, y goes up, z goes out.
 		this.Y = Y;
 	}
 	
-	private Color calculateLights(Shape shape, Point point) {	// Light calculations from email
+	private Tintable calculateLights(Shape shape, Point point) {	// Light calculations from email
 		Tintable diffuse = new Tintable(0,0,0);
 		Tintable specular = new Tintable(0,0,0);
 		float prop;
@@ -76,25 +78,36 @@ public class Scene {										// x goes right, y goes up, z goes out.
 		Color[][] screen = new Color[height][width];
 		for (int i = 0; i < X; i++) {
 			for (int j = 0; j < Y; j++) {
-				Color color = ambient;
-				Vector ray = new Vector(cam.getPos(), OC.sub(cam.getUp().cross(cam.getDir()).mult(i*width/X)).sub(cam.getUp().mult(j*height/Y)).getDirection());
-						// ray = OC + i*width/X*(U^ X D^) + j*height/Y*U^
-				float currentD = Float.MAX_VALUE;
-				Point current = null;
-				Shape currentShape = null;
-				for (Shape shape : shapes) {
-					Point[] intersections = shape.getIntersections(ray);	// Find points where ray intersects with a shape
-					for (Point vector : intersections) {
-						if (vector.pSub(cam.getPos()).mag() < currentD) {						// Find closest intersection
-							currentD = vector.pSub(cam.getPos()).mag();
-							current = vector;
-							currentShape = shape;
+				List<Tintable> toAverage = new ArrayList<Tintable>();
+				for (int x = 0; x<3; x++) {
+					for (int y=0; y<3; y++) {
+						Tintable color = ambient;
+						Vector ray = new Vector(cam.getPos(), OC.sub(cam.getUp().cross(cam.getDir()).mult(i*width/X + (x/2f)*width/X)).sub(cam.getUp().mult(j*height/Y + (y/2f)*width/Y)).getDirection());
+								// ray = OC + i*width/X*(U^ X D^) + j*height/Y*U^
+						float currentD = Float.MAX_VALUE;
+						Point current = null;
+						Shape currentShape = null;
+						for (Shape shape : shapes) {
+							Point[] intersections = shape.getIntersections(ray);	// Find points where ray intersects with a shape
+							for (Point vector : intersections) {
+								if (vector.pSub(cam.getPos()).mag() < currentD) {						// Find closest intersection
+									currentD = vector.pSub(cam.getPos()).mag();
+									current = vector;
+									currentShape = shape;
+								}
+							}
 						}
+						if (current != null) {
+							color = calculateLights(currentShape, current);
+						}
+						
+						toAverage.add(color);
+						
 					}
 				}
-				if (current != null) {
-					color = calculateLights(currentShape, current);
-				}
+				
+				Color color = Tintable.average(toAverage);
+				
 				screen[i][j] = color;		// set screen in place to color.
 			}
 		}
