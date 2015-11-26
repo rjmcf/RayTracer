@@ -5,8 +5,8 @@ import java.awt.Color;
 import rjmcf.raytracer.for3D.Scene;
 
 public class LineDrawer extends Scene{
-	//private Point2D centre = new Point2D(300,300);
-	private Geometry[] lines = new Geometry[] { new Bezier(new Point2D(200,200), new Point2D(300,400), new Point2D(400,400), new Point2D(550,250), Color.BLACK, false)
+	private Point2D centre = new Point2D(300,300);
+	private Geometry[] lines = new Geometry[] { new Bezier(new Point2D(200,300), new Point2D(300,400), new Point2D(400,400), new Point2D(550,250), Color.BLACK, true)
 												/*new Line(centre, new Point2D(599,500), Color.RED),
 												new Line(centre, new Point2D(400,599), Color.ORANGE),
 												new Line(centre, new Point2D(100,599), Color.YELLOW),
