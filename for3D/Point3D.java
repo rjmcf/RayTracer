@@ -1,4 +1,4 @@
-package rjmcf.raytracer;
+package rjmcf.raytracer.for3D;
 
 public class Point3D {
 	private float x;

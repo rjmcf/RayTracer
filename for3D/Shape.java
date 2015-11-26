@@ -1,4 +1,4 @@
-package rjmcf.raytracer;
+package rjmcf.raytracer.for3D;
 
 public abstract class Shape {
 	private Point3D centre;

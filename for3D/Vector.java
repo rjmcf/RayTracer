@@ -1,4 +1,4 @@
-package rjmcf.raytracer;
+package rjmcf.raytracer.for3D;
 
 public class Vector {
 	private Point3D point;

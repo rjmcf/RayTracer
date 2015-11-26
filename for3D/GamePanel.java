@@ -1,4 +1,4 @@
-package rjmcf.raytracer;
+package rjmcf.raytracer.for3D;
 
 import java.awt.Dimension;
 import java.awt.Graphics;

@@ -1,4 +1,6 @@
-package rjmcf.raytracer;
+package rjmcf.raytracer.for2D;
+
+import rjmcf.raytracer.for3D.Screen;
 
 public class Screen2D extends Screen{
  	
