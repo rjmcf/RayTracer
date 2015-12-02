@@ -16,7 +16,7 @@ Pictures generated of the line drawing are shown below the 3D examples.
 ![More use of the floor](https://github.com/rjmcf/RayTracer/blob/master/Shadows_on_a_Plane.png)
 
 2D Examples:
-![Lines in all octants and horizontal and vertical](https://github.com/rjmcf/RayTracer/blob/for2D/lines.png)
-![A simple Bezier curve](https://github.com/rjmcf/RayTracer/blob/for2D/bezier.png)
-![The same Bezier curve showing the convex hull](https://github.com/rjmcf/RayTracer/blob/for2D/bezier_with_hull.png)
+![Lines in all octants and horizontal and vertical](https://github.com/rjmcf/RayTracer/blob/master/lines.png)
+![A simple Bezier curve](https://github.com/rjmcf/RayTracer/blob/master/bezier.png)
+![The same Bezier curve showing the convex hull](https://github.com/rjmcf/RayTracer/blob/master/bezier_with_hull.png)
 
