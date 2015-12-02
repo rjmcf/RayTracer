@@ -1,8 +1,8 @@
-package rjmcf.raytracer.for2D;
+package for2D;
 
-import java.awt.Color;
+import for3D.Scene;
 
-import rjmcf.raytracer.for3D.Scene;
+import java.awt.*;
 
 public class LineDrawer extends Scene {
     //private Point2D centre = new Point2D(300,300);

@@ -1,6 +1,6 @@
-package rjmcf.raytracer.for2D;
+package for2D;
 
-import java.awt.Color;
+import java.awt.*;
 
 public class Point2D extends Geometry {
     private float x;

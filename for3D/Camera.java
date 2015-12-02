@@ -1,4 +1,4 @@
-package rjmcf.raytracer.for3D;
+package for3D;
 
 public class Camera {
     private Point3D position;

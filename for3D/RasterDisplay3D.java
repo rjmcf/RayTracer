@@ -1,9 +1,7 @@
-package rjmcf.raytracer.for3D;
+package for3D;
 
-import java.awt.BorderLayout;
-
-import javax.swing.JComponent;
-import javax.swing.JFrame;
+import javax.swing.*;
+import java.awt.*;
 
 public class RasterDisplay3D extends JFrame {
     private static final long serialVersionUID = 1L;
@@ -15,7 +13,7 @@ public class RasterDisplay3D extends JFrame {
     public RasterDisplay3D() {
         super("Display");
         setSize(length, (length) + 20);
-        setDefaultCloseOperation(EXIT_ON_CLOSE);
+        setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         setLayout(new BorderLayout());
         JComponent gamePanel = createGamePanel();
         add(gamePanel, BorderLayout.CENTER);

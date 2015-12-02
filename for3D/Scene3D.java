@@ -1,6 +1,6 @@
-package rjmcf.raytracer.for3D;
+package for3D;
 
-import java.awt.Color;
+import java.awt.*;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -79,7 +79,7 @@ public class Scene3D extends Scene {                            // x goes right,
         Color[][] screen = new Color[getY()][getX()];
         for (int i = 0; i < getX(); i++) {
             for (int j = 0; j < getY(); j++) {
-                List<Tintable> toAverage = new ArrayList<Tintable>();
+                List<Tintable> toAverage = new ArrayList<>();
                 for (int x = 0; x < 3; x++) {
                     for (int y = 0; y < 3; y++) {
                         Tintable color = ambient;
