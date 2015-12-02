@@ -1,6 +1,6 @@
-package rjmcf.raytracer.for2D;
+package for2D;
 
-import java.awt.Color;
+import java.awt.*;
 
 public class Bezier extends Geometry {
     private Point2D P0;
@@ -8,6 +8,7 @@ public class Bezier extends Geometry {
     private Point2D P2;
     private Point2D P3;
     private Color c;
+    private float limit = 1f;
     private boolean drawBox;
 
     public Bezier(Point2D p0, Point2D p1, Point2D p2, Point2D p3, Color C, boolean drawBox) {
@@ -28,15 +29,13 @@ public class Bezier extends Geometry {
         s1 = s1 < 0 ? 0 : s1;
         s1 = s1 > 1 ? 1 : s1;
         Point2D Q1 = pointForParam(s1);
-        if (P1.dist(Q1) > 1) return false;
+        if (P1.dist(Q1) > limit) return false;
 
         float s2 = ((P3.getX() - P0.getX()) * (P2.getX() - P0.getX()) + (P3.getY() - P0.getY()) * (P2.getY() - P0.getY())) / ((P3.getX() - P0.getX()) * (P3.getX() - P0.getX()) + (P3.getY() - P0.getY()) * (P3.getY() - P0.getY()));
         s2 = s2 < 0 ? 0 : s2;
         s2 = s2 > 1 ? 1 : s2;
-        Point2D Q2 = pointForParam(s1);
-        if (P2.dist(Q2) > 1) return false;
-
-        return true;
+        Point2D Q2 = pointForParam(s2);
+        return P2.dist(Q2) <= limit;
 
     }
 

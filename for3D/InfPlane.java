@@ -1,4 +1,4 @@
-package rjmcf.raytracer.for3D;
+package for3D;
 
 public class InfPlane extends Shape {
     private Point3D normal;

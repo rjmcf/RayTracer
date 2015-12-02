@@ -1,7 +1,6 @@
-package rjmcf.raytracer.for3D;
+package for3D;
 
-import java.awt.Color;
-import java.awt.Graphics;
+import java.awt.*;
 
 public abstract class Screen {
     private int width;        // dimensions in screen pixels

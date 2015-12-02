@@ -1,4 +1,4 @@
-package rjmcf.raytracer.for3D;
+package for3D;
 
 public enum Material {
     MAT1(0.4f, 0.4f, 0.2f, 10);

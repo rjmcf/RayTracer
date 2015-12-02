@@ -1,4 +1,4 @@
-package rjmcf.raytracer.for3D;
+package for3D;
 
 public class Light {
     // A light is a point that can then be traced to from surfaces.

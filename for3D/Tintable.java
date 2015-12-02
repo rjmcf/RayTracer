@@ -1,6 +1,6 @@
-package rjmcf.raytracer.for3D;
+package for3D;
 
-import java.awt.Color;
+import java.awt.*;
 import java.util.List;
 
 public class Tintable extends Color {
@@ -17,9 +17,9 @@ public class Tintable extends Color {
     }
 
     public Tintable addTint(Tintable t) {
-        int r = Math.min((int) (getRed() + t.getRed()), 255);
-        int g = Math.min((int) (getGreen() + t.getGreen()), 255);
-        int b = Math.min((int) (getBlue() + t.getBlue()), 255);
+        int r = Math.min((getRed() + t.getRed()), 255);
+        int g = Math.min((getGreen() + t.getGreen()), 255);
+        int b = Math.min((getBlue() + t.getBlue()), 255);
 
         return new Tintable(r, g, b);
     }

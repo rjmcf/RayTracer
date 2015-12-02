@@ -1,10 +1,9 @@
-package rjmcf.raytracer.for2D;
+package for2D;
 
-import java.awt.BorderLayout;
-import javax.swing.JComponent;
-import javax.swing.JFrame;
+import for3D.GamePanel;
 
-import rjmcf.raytracer.for3D.GamePanel;
+import javax.swing.*;
+import java.awt.*;
 
 public class RasterDisplay2D extends JFrame {
     private static final long serialVersionUID = 1L;
@@ -15,8 +14,8 @@ public class RasterDisplay2D extends JFrame {
 
     public RasterDisplay2D() {
         super("Display");
-        setSize(length + 0, length + 23);
-        setDefaultCloseOperation(EXIT_ON_CLOSE);
+        setSize(length, length + 23);
+        setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         setLayout(new BorderLayout());
         JComponent gamePanel = createGamePanel();
         add(gamePanel, BorderLayout.CENTER);

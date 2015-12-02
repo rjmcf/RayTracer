@@ -1,9 +1,7 @@
-package rjmcf.raytracer.for3D;
+package for3D;
 
-import java.awt.Dimension;
-import java.awt.Graphics;
-
-import javax.swing.JPanel;
+import javax.swing.*;
+import java.awt.*;
 
 public class GamePanel extends JPanel {
     private static final long serialVersionUID = 1L;
