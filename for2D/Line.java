@@ -6,7 +6,7 @@ public class Line extends Geometry {
     LineInterface lineInstance;
 
     public Line(Point2D S, Point2D E, Color C) {
-        lineInstance = new LineBresenham(S, E, C);
+        lineInstance = new LineMidpoint(S, E, C);
     }
 
     @Override
