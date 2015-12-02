@@ -1,17 +1,14 @@
-package rjmcf.raytracer;
+package rjmcf.raytracer.for3D;
 
 import java.awt.Color;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Scene {										// x goes right, y goes up, z goes out.
-	private int height;										// Dimensions in terms of monitor pixels
-	private int width;
+public class Scene3D extends Scene{							// x goes right, y goes up, z goes out.
 	private Tintable ambient = new Tintable(100,100,100);	// Constant ambient light
 	private Vector OC;										/* The vector from the camera to the top left 
 															 * corner of the screen. */
-	private int X;											// Dimensions in terms of screen pixels
-	private int Y;
+	
 	private Camera cam = new Camera(0,800,1600, new Vector(0,-1,-2),new Vector(0,2,-1),1000);	
 				// position, direction, up, distance from screen
 	Tintable grey = new Tintable(50,50,50);
@@ -32,19 +29,16 @@ public class Scene {										// x goes right, y goes up, z goes out.
 	*/	
 	
 	private Shape[] shapes = new Shape[] { new Sphere(0,100,0, 100, red, Material.MAT1),
-										   new InfPlane(0,0,0, new Point(0,1,0), grey, Material.MAT1) };
-	private Light[] lights = new Light[] { new Light(200,400,200, yellow) };
+										   new InfPlane(0,0,0, new Point3D(0,1,0), grey, Material.MAT1) };
+	private Light[] lights = new Light[] { new Light(200,400,800, yellow) };
 	
-	public Scene(int h, int w, int X, int Y){
-		height = h;	// monitor
-		width = w;
-		OC = new Vector(cam.getPos(), cam.getDir().mult(cam.getDist()).add(cam.getUp().mult(height/2f)).add(cam.getUp().cross(cam.getDir()).norm().mult(width/2f)).getDirection());
+	public Scene3D(int h, int w, int X, int Y){
+		super(h,w,X,Y);
+		OC = new Vector(cam.getPos(), cam.getDir().mult(cam.getDist()).add(cam.getUp().mult(getHeight()/2f)).add(cam.getUp().cross(cam.getDir()).norm().mult(getWidth()/2f)).getDirection());
 									// OC = dist*D^ + h/2 * U^ + w/2 * (U^ X D^)^
-		this.X = X;	// screen
-		this.Y = Y;
 	}
 	
-	private Tintable calculateLights(Shape shape, Point point) {	// Light calculations from email
+	private Tintable calculateLights(Shape shape, Point3D point) {	// Light calculations from email
 		Tintable diffuse = new Tintable(0,0,0);
 		Tintable specular = new Tintable(0,0,0);
 		float prop;
@@ -80,22 +74,24 @@ public class Scene {										// x goes right, y goes up, z goes out.
 		return ambient.addTint(shape.getColor().proportion(shape.getMat().ambient)).addTint(diffuse).addTint(specular);
 	}
 	
+	@Override
 	public Color[][] getScreen() {
-		Color[][] screen = new Color[height][width];
-		for (int i = 0; i < X; i++) {
-			for (int j = 0; j < Y; j++) {
+		System.out.println(getX() + ", " + getY());
+		Color[][] screen = new Color[getY()][getX()];
+		for (int i = 0; i < getX(); i++) {
+			for (int j = 0; j < getY(); j++) {
 				List<Tintable> toAverage = new ArrayList<Tintable>();
 				for (int x = 0; x<3; x++) {
 					for (int y=0; y<3; y++) {
 						Tintable color = ambient;
-						Vector ray = new Vector(cam.getPos(), OC.sub(cam.getUp().cross(cam.getDir()).mult(i*width/X + (x/2f)*width/X)).sub(cam.getUp().mult(j*height/Y + (y/2f)*width/Y)).getDirection());
+						Vector ray = new Vector(cam.getPos(), OC.sub(cam.getUp().cross(cam.getDir()).mult(i*getWidth()/getX() + (x/2f)*getWidth()/getX())).sub(cam.getUp().mult(j*getHeight()/getY() + (y/2f)*getWidth()/getY())).getDirection());
 								// ray = OC + i*width/X*(U^ X D^) + j*height/Y*U^
 						float currentD = Float.MAX_VALUE;
-						Point current = null;
+						Point3D current = null;
 						Shape currentShape = null;
 						for (Shape shape : shapes) {
-							Point[] intersections = shape.getIntersections(ray);	// Find points where ray intersects with a shape
-							for (Point vector : intersections) {
+							Point3D[] intersections = shape.getIntersections(ray);	// Find points where ray intersects with a shape
+							for (Point3D vector : intersections) {
 								if (vector.pSub(cam.getPos()).mag() < currentD) {						// Find closest intersection
 									currentD = vector.pSub(cam.getPos()).mag();
 									current = vector;

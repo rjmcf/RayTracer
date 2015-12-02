@@ -1,20 +1,20 @@
-package rjmcf.raytracer;
+package rjmcf.raytracer.for3D;
 
 public class Vector {
-	private Point point;
-	private Point direction;
+	private Point3D point;
+	private Point3D direction;
 	
-	public Vector(Point p, Point d) {
+	public Vector(Point3D p, Point3D d) {
 		point = p;
 		direction = d;
 	}
 	public Vector(float x, float y, float z) {
-		point = new Point(0,0,0);
-		direction = new Point(x,y,z);
+		point = new Point3D(0,0,0);
+		direction = new Point3D(x,y,z);
 	}
 	
-	public Point getPoint() { return point; }
-	public Point getDirection() { return direction; }
+	public Point3D getPoint() { return point; }
+	public Point3D getDirection() { return direction; }
 	
 	public Vector add(Vector v) {
 		return new Vector(point, direction.pAdd(v.direction));

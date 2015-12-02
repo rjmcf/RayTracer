@@ -1,30 +1,29 @@
-package rjmcf.raytracer;
+package rjmcf.raytracer.for3D;
 
 import java.awt.Color;
 import java.awt.Graphics;
 
-
-public class Screen{
- 	private int width;		// dimensions in screen pixels
+public abstract class Screen {
+	private int width;		// dimensions in screen pixels
  	private int height;		
  	Color[][] screen;		// screen to draw
- 	Scene scene;			// scene to draw on screen
- 	
- 	protected Screen(int h, int w, int X, int Y) {
-  		this.width = X;
-  		this.height = Y;
-  		scene = new Scene(h,w,X,Y);	// h and w are monitor pixel dimensions
-	}
- 	
- 	public void draw() {
- 		screen = scene.getScreen();
- 	}
- 	
- 	public int getWidth() { return this.width; }
+	Scene scene;
+	
+	public int getWidth() { return this.width; }
  	public int getHeight() { return this.height; }
  	protected Color getCellAsColour(int col,int row) { return screen[col][row]; }
  	
- 	public void draw(Graphics g,int width, int height) {		// Complex drawing stuff.
+ 	protected Screen(int X, int Y, Scene s) {
+  		width = X;
+  		height = Y;
+  		scene = s;	// h and w are monitor pixel dimensions
+	}
+	
+ 	public void setScreen() {
+ 		screen = scene.getScreen();
+ 	}
+ 	
+	public void draw(Graphics g,int width, int height) {		// Complex drawing stuff.
   		int worldWidth = getWidth();
   		int worldHeight = getHeight();
   		double colScale = (double)width/(double)worldWidth;
@@ -43,4 +42,5 @@ public class Screen{
 			}
 		} 
 	}
+
 }
