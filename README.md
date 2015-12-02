@@ -11,12 +11,12 @@ Pictures generated of the line drawing are shown below the 3D examples.
 
 3D Examples:
 
-![Using a plane as a floor](https://github.com/rjmcf/RayTracer/blob/master/Ball_on_a_Plane.png)
-![Showing multiple shadows and lights](https://github.com/rjmcf/RayTracer/blob/master/Multiple_Lights_Multiple_Shadows.png)
-![More use of the floor](https://github.com/rjmcf/RayTracer/blob/master/Shadows_on_a_Plane.png)
+![Using a plane as a floor](https://github.com/rjmcf/RayTracer/blob/master/Pictures/Ball_on_a_Plane.png)
+![Showing multiple shadows and lights](https://github.com/rjmcf/RayTracer/blob/master/Pictures/Multiple_Lights_Multiple_Shadows.png)
+![More use of the floor](https://github.com/rjmcf/RayTracer/blob/master/Pictures/Shadows_on_a_Plane.png)
 
 2D Examples:
-![Lines in all octants and horizontal and vertical](https://github.com/rjmcf/RayTracer/blob/master/lines.png)
-![A simple Bezier curve](https://github.com/rjmcf/RayTracer/blob/master/bezier.png)
-![The same Bezier curve showing the convex hull](https://github.com/rjmcf/RayTracer/blob/master/bezier_with_hull.png)
+![Lines in all octants and horizontal and vertical](https://github.com/rjmcf/RayTracer/blob/master/Pictures/lines.png)
+![A simple Bezier curve](https://github.com/rjmcf/RayTracer/blob/master/Pictures/bezier.png)
+![The same Bezier curve showing the convex hull](https://github.com/rjmcf/RayTracer/blob/master/Pictures/bezier_with_hull.png)
 
