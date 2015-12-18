@@ -1,8 +1,7 @@
 package for2D;
 
 import for3D.Scene;
-
-import java.awt.*;
+import java.awt.Color;
 
 public class LineDrawer extends Scene {
     private Point2D centre = new Point2D(300, 300);

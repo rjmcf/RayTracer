@@ -1,7 +1,8 @@
 package for3D;
 
-import javax.swing.*;
-import java.awt.*;
+import javax.swing.JPanel;
+import java.awt.Dimension;
+import java.awt.Graphics;
 
 public class GamePanel extends JPanel {
     private static final long serialVersionUID = 1L;

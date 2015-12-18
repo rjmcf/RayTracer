@@ -11,14 +11,6 @@ public class Plane extends InfPlane {
         height = h;
         width = w;
         theta = t;
-
-        Point3D X = n.pCross(new Point3D(0, 1, 0));
-    }
-
-    private Plane getProjection() {
-
-
-        return this;
     }
 
 }

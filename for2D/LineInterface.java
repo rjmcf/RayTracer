@@ -1,6 +1,6 @@
 package for2D;
 
-import java.awt.*;
+import java.awt.Color;
 
 public interface LineInterface {
     void drawLine(Color[][] screen, int Y);

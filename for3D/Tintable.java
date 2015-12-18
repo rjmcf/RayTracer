@@ -1,6 +1,6 @@
 package for3D;
 
-import java.awt.*;
+import java.awt.Color;
 import java.util.List;
 
 public class Tintable extends Color {
@@ -24,10 +24,10 @@ public class Tintable extends Color {
         return new Tintable(r, g, b);
     }
 
-    public Tintable proportion(float p) {
-        return new Tintable(Math.min((int) (p * getRed()), 255),
-                Math.min((int) (p * getGreen()), 255),
-                Math.min((int) (p * getBlue()), 255));
+    public Tintable proportion(K k) {
+        return new Tintable(Math.min((int) (k.getR() * getRed()), 255),
+                Math.min((int) (k.getG() * getGreen()), 255),
+                Math.min((int) (k.getB() * getBlue()), 255));
     }
 
     @Override
@@ -45,5 +45,13 @@ public class Tintable extends Color {
         }
 
         return new Tintable(redTot / list.size(), greenTot / list.size(), blueTot / list.size());
+    }
+
+    public static boolean different(Tintable t1, Tintable t2) {
+        float r = Math.abs(t1.getRed() - t2.getRed());
+        float g = Math.abs(t1.getGreen() - t2.getGreen());
+        float b = Math.abs(t1.getBlue() - t2.getBlue());
+
+        return (r+g+b > 50);
     }
 }

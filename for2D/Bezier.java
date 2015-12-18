@@ -1,6 +1,6 @@
 package for2D;
 
-import java.awt.*;
+import java.awt.Color;
 
 public class Bezier extends Geometry {
     private Point2D P0;
