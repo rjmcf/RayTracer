@@ -1,6 +1,7 @@
 package for3D;
 
-import java.awt.*;
+import java.awt.Color;
+import java.awt.Graphics;
 
 public abstract class Screen {
     private int width;        // dimensions in screen pixels

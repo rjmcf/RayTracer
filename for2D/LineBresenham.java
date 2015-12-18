@@ -1,6 +1,6 @@
 package for2D;
 
-import java.awt.*;
+import java.awt.Color;
 
 public class LineBresenham implements LineInterface {
     private Point2D s;

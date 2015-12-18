@@ -1,9 +1,10 @@
 package for2D;
 
 import for3D.GamePanel;
-
-import javax.swing.*;
-import java.awt.*;
+import javax.swing.JComponent;
+import javax.swing.JFrame;
+import javax.swing.WindowConstants;
+import java.awt.BorderLayout;
 
 public class RasterDisplay2D extends JFrame {
     private static final long serialVersionUID = 1L;

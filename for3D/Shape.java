@@ -23,9 +23,9 @@ public abstract class Shape {
         return mat;
     }
 
-    public abstract Vector getNormal(Point3D point);
+    public abstract Vector3D getNormal(Point3D point);
 
-    public abstract Point3D[] getIntersections(Vector line);
+    public abstract Point3D[] getIntersections(Vector3D line);
 
     public abstract Tintable getColorAtPixel(Point3D point);
 }

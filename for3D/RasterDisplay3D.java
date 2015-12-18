@@ -1,9 +1,15 @@
 package for3D;
 
-import javax.swing.*;
-import java.awt.*;
+import javax.swing.JComponent;
+import javax.swing.JFrame;
+import javax.swing.WindowConstants;
+import java.awt.BorderLayout;
 
 public class RasterDisplay3D extends JFrame {
+    /*TODO:
+        Make a matrix to rotate vector around a line.
+        Make a matrix to reflect a line in a plane.
+     */
     private static final long serialVersionUID = 1L;
     private GamePanel gamePanel;    // gamePanel actually draws coloured pixels.
     private static Screen3D screen;    // screen stores a double list of colors to draw

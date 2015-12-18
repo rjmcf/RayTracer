@@ -1,6 +1,6 @@
 package for3D;
 
-import java.awt.*;
+import java.awt.Color;
 
 public abstract class Scene {
     private int height;                                        // Dimensions in terms of monitor pixels

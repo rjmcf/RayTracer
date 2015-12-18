@@ -9,12 +9,12 @@ public class Sphere extends Shape {
     }
 
     @Override
-    public Vector getNormal(Point3D point) {
-        return new Vector(point, point.pSub(getCentre()).norm());
+    public Vector3D getNormal(Point3D point) {
+        return new Vector3D(point, point.pSub(getCentre()).norm());
     }
 
     @Override
-    public Point3D[] getIntersections(Vector line) {        // Formula from notes
+    public Point3D[] getIntersections(Vector3D line) {        // Formula from notes
         line = line.norm();
         float a = line.dot(line);
         // a = D.D
