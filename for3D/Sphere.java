@@ -39,6 +39,29 @@ public class Sphere extends Shape {
     }
 
     @Override
+    public boolean inWayofLight(Vector3D toLight, Light light) {
+        float a = toLight.dot(toLight);
+        // a = D.D
+        float b = toLight.getDirection().pMult(2).pDot(toLight.getPoint().pSub(getCentre()));
+        // b = 2D.(O-C)
+        float c = toLight.getPoint().pSub(getCentre()).pDot(toLight.getPoint().pSub(getCentre())) - radius * radius;
+        // (O-C).(O-C) - r^2
+        if (b * b - 4 * a * c < 0) {
+            return false;
+        }
+        float d = (float) Math.sqrt(b * b - 4 * a * c);
+        float s1 = (-b + d) / 2 * a;
+
+        float lightD = light.getPos().pSub(getCentre()).mag();
+
+        if (s1 > 0 && s1 < lightD) {
+            return true;
+        }
+
+        return false;
+    }
+
+    @Override
     public Tintable getColorAtPixel(Point3D point) {
         return getColor();
     }

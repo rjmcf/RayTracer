@@ -24,10 +24,14 @@ public class Tintable extends Color {
         return new Tintable(r, g, b);
     }
 
-    public Tintable proportion(K k) {
+    public Tintable propK(K k) {
         return new Tintable(Math.min((int) (k.getR() * getRed()), 255),
                 Math.min((int) (k.getG() * getGreen()), 255),
                 Math.min((int) (k.getB() * getBlue()), 255));
+    }
+
+    public Tintable prop(float p) {
+        return new Tintable((int)p*getRed(), (int)p*getGreen(), (int)p*getBlue());
     }
 
     @Override

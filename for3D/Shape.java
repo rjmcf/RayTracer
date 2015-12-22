@@ -11,9 +11,7 @@ public abstract class Shape {
         mat = m;
     }
 
-    public Point3D getCentre() {
-        return centre;
-    }
+    public Point3D getCentre() { return centre; }
 
     public Tintable getColor() {
         return color;
@@ -26,6 +24,8 @@ public abstract class Shape {
     public abstract Vector3D getNormal(Point3D point);
 
     public abstract Point3D[] getIntersections(Vector3D line);
+
+    public abstract boolean inWayofLight(Vector3D toLight, Light light);
 
     public abstract Tintable getColorAtPixel(Point3D point);
 }
